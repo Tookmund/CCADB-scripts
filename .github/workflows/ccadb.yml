@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
+name: "Build CCADB Sqlite 3 Database and CSV"
 
 # Controls when the workflow will run
 on:
@@ -32,7 +30,7 @@ jobs:
         with:
           name: cca.db
           path: cca.db
-      
+
       - uses: actions/upload-artifact@v3
         with:
           name: CCADB.csv
