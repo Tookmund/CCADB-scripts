@@ -109,8 +109,8 @@ SELECT
 	certrecords."Subordinate CA Owner",
 	certrecords."Full CRL Issued By This CA",
 	certrecords."JSON Array of Partitioned CRLs",
-	certrecords."Valid From (GMT)",
-	certrecords."Valid To (GMT)",
+	REPLACE(certrecords."Valid From (GMT)", ".", "-"),
+	REPLACE(certrecords."Valid To (GMT)", ".", "-"),
 	"X.509 Certificate (PEM)"
 FROM
 	certrecords
