@@ -122,6 +122,7 @@ LEFT JOIN certrecords AS parentrecords ON certrecords."Parent Salesforce Record 
 DROP TABLE certrecords;
 DROP TABLE includedrootcerts;
 DROP TABLE pems;
+VACUUM;
 
 .headers on
 .output CCADB.csv
