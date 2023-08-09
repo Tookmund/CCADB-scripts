@@ -118,6 +118,10 @@ LEFT JOIN includedrootcerts USING ("SHA-256 Fingerprint")
 LEFT JOIN pems USING ("SHA-256 Fingerprint")
 LEFT JOIN certrecords AS parentrecords ON certrecords."Parent Salesforce Record ID" = parentrecords."Salesforce Record ID";
 
+-- Drop All Intermediate Table to Reduce Database Size
+DROP TABLE certrecords;
+DROP TABLE includedrootcerts;
+DROP TABLE pems;
 
 .headers on
 .output CCADB.csv
