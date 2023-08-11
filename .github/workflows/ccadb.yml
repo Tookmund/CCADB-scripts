@@ -26,8 +26,8 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: cca.db
-          path: cca.db
+          name: CCADB.db
+          path: CCADB.db
 
       - uses: actions/upload-artifact@v3
         with:

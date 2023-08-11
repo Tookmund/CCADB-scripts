@@ -8,4 +8,4 @@ curl "https://ccadb.my.salesforce-sites.com/ccadb/AllCertificatePEMsCSVFormat?No
 curl "https://ccadb.my.salesforce-sites.com/ccadb/AllCertificatePEMsCSVFormat?NotBeforeDecade=2010" > PEMs2010.csv
 curl "https://ccadb.my.salesforce-sites.com/ccadb/AllCertificatePEMsCSVFormat?NotBeforeDecade=2020" > PEMs2020.csv
 
-sqlite3 cca.db < ccadb-import.sql
+sqlite3 CCADB.db < ccadb-import.sql
