@@ -1,4 +1,4 @@
-name: "Build CCADB Sqlite 3 Database and CSV"
+name: "Build CCADB SQLite 3 Database and CSV"
 
 # Controls when the workflow will run
 on:
