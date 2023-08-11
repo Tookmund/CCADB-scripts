@@ -1,0 +1,18 @@
+title: CCADB
+about: CCADB Scripts
+about_url: https://github.com/tookmund/CCADB-scripts
+plugins:
+  datasette-graphql:
+    path: /-/graphql
+databases:
+  CCADB:
+    tables:
+      certificates:
+        sort_desc: valid_to_gmt
+        facets:
+        - cert_type
+        - revocation
+        - mozilla_status
+        - microsoft_status
+        - apple_status
+        - chrome_status
