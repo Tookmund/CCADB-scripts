@@ -83,6 +83,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      
+      - uses: actions/setup-node@v4
+        name: Install Node.js
+
+      - name: Install Vercel
+        run: |
+          npm i -g vercel
 
       - name: Download CCADB.db
         uses: actions/download-artifact@v3
