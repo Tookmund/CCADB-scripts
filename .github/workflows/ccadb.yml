@@ -19,7 +19,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Generate CCADB Table
         run: $GITHUB_WORKSPACE/ccadb.sh
@@ -41,7 +41,7 @@ jobs:
         with:
           name: CCADB.csv
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ssh-key: ${{ secrets.SSH_KEY }}
           repository: tookmund/CCADB-csv
@@ -65,13 +65,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Scripts
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         name: Configure pip caching
         with:
           path: ~/.cache/pip
@@ -122,7 +122,7 @@ jobs:
         with:
           name: CCADB.csv
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ssh-key: ${{ secrets.SCRIPTS_SSH_KEY }}
           repository: tookmund/CCADB-scripts
