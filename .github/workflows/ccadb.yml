@@ -54,9 +54,7 @@ jobs:
           git config user.email github-actions@github.com
           mv ../CCADB.csv .
           git add CCADB.csv
-          # Quit early if there are no changes
-          git diff --exit-code && exit 0
-          git commit -m "Automated CSV Update"
+          git commit -m "Automated CSV Update" || echo "No changes?"
           git push
 
   # Based on https://github.com/simonw/til
