@@ -14,8 +14,10 @@ CREATE TABLE certificates (
 	cert_name TEXT,
 	parent_sha256 TEXT,
 	-- FOREIGN KEY(parent_sha256) REFERENCES certificates(sha256),
+
 	cert_type TEXT,
 	revocation TEXT,
+
 	auditor TEXT,
 	same_auditor_as_parent BOOLEAN,
 	audit_url TEXT,
@@ -23,46 +25,62 @@ CREATE TABLE certificates (
 	audit_statement_date TEXT,
 	audit_start_date TEXT,
 	audit_end_date TEXT,
+
 	br_audit_url TEXT,
 	br_audit_type TEXT,
 	br_audit_statement_date TEXT,
 	br_audit_start_date TEXT,
 	br_audit_end_date TEXT,
+
 	tls_evg_audit_url TEXT,
 	tls_evg_audit_type TEXT,
 	tls_evg_audit_statement_date TEXT,
 	tls_evg_audit_start_date TEXT,
 	tls_evg_audit_end_date TEXT,
+
 	code_audit_url TEXT,
 	code_audit_type TEXT,
 	code_audit_statement_date TEXT,
 	code_audit_start_date TEXT,
 	code_audit_end_date TEXT,
+
 	cert_policy_url TEXT,
 	same_cert_policy_as_parent BOOLEAN,
 	cert_policy_effective_date TEXT,
+
 	cert_practice_statement_url TEXT,
 	same_cert_practice_as_parent BOOLEAN,
 	cert_practice_statement_effective_date TEXT,
+
 	cert_policy_and_practice_url TEXT,
 	same_cert_policy_and_practice_as_parent BOOLEAN,
 	cert_policy_and_practice_effective_date TEXT,
+
 	test_site_valid_url TEXT,
 	test_site_expired_url TEXT,
 	test_site_revoked_url TEXT,
+
 	technically_constrained BOOLEAN,
+
 	apple_status TEXT,
 	apple_trust TEXT,
+
 	mozilla_status TEXT,
 	mozilla_trust TEXT,
+
 	microsoft_status TEXT,
 	microsoft_trust TEXT,
+
 	chrome_status TEXT,
+
 	sub_ca_owner TEXT,
+
 	full_ca_crl_url TEXT,
 	partitioned_crls_json_array TEXT,
+
 	valid_from_gmt TEXT,
 	valid_to_gmt TEXT,
+
 	pem TEXT
 );
 
@@ -74,6 +92,7 @@ SELECT
 	parentrecords."SHA-256 Fingerprint",
 	certrecords."Certificate Record Type",
 	certrecords."Revocation Status",
+
 	certrecords."Auditor",
 	certrecords."Audits Same as Parent",
 	certrecords."Standard Audit URL",
@@ -81,46 +100,62 @@ SELECT
 	REPLACE(certrecords."Standard Audit Statement Date", ".", "-"),
 	REPLACE(certrecords."Standard Audit Period Start Date", ".", "-"),
 	REPLACE(certrecords."Standard Audit Period End Date", ".", "-"),
+
 	certrecords."TLS BR Audit URL",
 	certrecords."TLS BR Audit Type",
 	REPLACE(certrecords."TLS BR Audit Statement Date", ".", "-"),
 	REPLACE(certrecords."TLS BR Audit Period Start Date", ".", "-"),
 	REPLACE(certrecords."TLS BR Audit Period End Date", ".", "-"),
+
 	certrecords."TLS EVG Audit URL",
 	certrecords."TLS EVG Audit Type",
 	REPLACE(certrecords."TLS EVG Audit Statement Date", ".", "-"),
 	REPLACE(certrecords."TLS EVG Audit Period Start Date", ".", "-"),
 	REPLACE(certrecords."TLS EVG Audit Period End Date", ".", "-"),
+
 	certrecords."Code Signing Audit URL",
 	certrecords."Code Signing Audit Type",
 	REPLACE(certrecords."Code Signing Audit Statement Date", ".", "-"),
 	REPLACE(certrecords."Code Signing Audit Period Start Date", ".", "-"),
 	REPLACE(certrecords."Code Signing Audit Period End Date", ".", "-"),
+
 	certrecords."Certificate Policy (CP) URL",
 	certrecords."CP Same as Parent",
 	REPLACE(certrecords."CP Effective Date", ".", "-"),
+
 	certrecords."Certificate Practice Statement (CPS) URL",
 	certrecords."CPS Same as Parent",
 	REPLACE(certrecords."CPS Effective Date", ".", "-"),
+
 	certrecords."Certificate Practice & Policy Statement",
 	certrecords."CP/CPS Same as Parent",
 	REPLACE(certrecords."CP/CPS Effective Date", ".", "-"),
+
 	certrecords."Test Website URL - Valid",
 	certrecords."Test Website URL - Expired",
 	certrecords."Test Website URL - Revoked",
+
 	certrecords."Technically Constrained",
+
 	includedrootcerts."Apple Status",
 	includedrootcerts."Apple Trust Bits",
+
 	certrecords."Mozilla Status",
 	"Mozilla Trust Bits",
+
 	certrecords."Microsoft Status",
 	"Microsoft EKUs For DTBs",
+
 	"Google Chrome Status",
+
 	certrecords."Subordinate CA Owner",
+
 	certrecords."Full CRL Issued By This CA",
 	certrecords."JSON Array of Partitioned CRLs",
+
 	REPLACE(certrecords."Valid From (GMT)", ".", "-"),
 	REPLACE(certrecords."Valid To (GMT)", ".", "-"),
+
 	"X.509 Certificate (PEM)"
 FROM
 	certrecords
