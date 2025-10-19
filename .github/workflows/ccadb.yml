@@ -63,10 +63,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Scripts
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - uses: actions/cache@v4
@@ -82,15 +82,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         name: Install Node.js
+        with:
+          node-version: '22.x'
 
       - name: Install Vercel
         run: |
           npm i -g vercel
 
       - name: Download CCADB.db
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: CCADB.db
 
