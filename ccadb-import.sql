@@ -79,8 +79,8 @@ CREATE TABLE certificates (
 	same_cert_policy_and_practice_as_parent BOOLEAN,
 	cert_policy_and_practice_effective_date TEXT,
 
-	plaintext_cert_policy_and_practice_same_as_parent BOOLEAN,
 	plaintext_cert_policy_and_practice_url TEXT,
+	plaintext_cert_policy_and_practice_same_as_parent BOOLEAN,
 	plaintext_cert_policy_and_practice_effective_date TEXT,
 
 
