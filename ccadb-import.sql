@@ -246,4 +246,4 @@ VACUUM;
 
 .headers on
 .output CCADB.csv
-SELECT * FROM certificates;
+SELECT * FROM certificates order by valid_from_gmt asc;
