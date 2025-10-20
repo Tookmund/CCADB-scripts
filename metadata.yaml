@@ -1,9 +1,6 @@
 title: CCADB
 about: CCADB Scripts
 about_url: https://github.com/tookmund/CCADB-scripts
-plugins:
-  datasette-graphql:
-    path: /-/graphql
 databases:
   CCADB:
     tables:

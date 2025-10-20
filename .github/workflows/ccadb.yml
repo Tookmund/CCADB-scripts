@@ -97,29 +97,15 @@ jobs:
           datasette publish vercel CCADB.db \
             --project ccadb \
             --metadata metadata.yaml \
-            --install datasette-template-sql \
-            --install "datasette-atom>=0.7" \
-            --install datasette-json-html \
-            --install beautifulsoup4 \
-            --install datasette-debug-asgi \
-            --install "datasette-graphql>=0.12" \
-            --install datasette-media \
             --generate-vercel-json > vercel.json
-          sed -i 's/@vercel\/python@3\.0\.7/@vercel\/python@4.5.1/g' vercel.json
+          sed -i 's/@vercel\/python@3\.0\.7/@vercel\/python@5.0.10/g' vercel.json
           datasette publish vercel CCADB.db \
-            --token $NOW_TOKEN \
-            --branch main \
             --project ccadb \
             --metadata metadata.yaml \
-            --install datasette-template-sql \
-            --install "datasette-atom>=0.7" \
-            --install datasette-json-html \
-            --install beautifulsoup4 \
-            --install datasette-debug-asgi \
-            --install "datasette-graphql>=0.12" \
-            --install datasette-media \
-            --public \
-            --vercel-json vercel.json
+            --vercel-json vercel.json \
+            --token $NOW_TOKEN \
+            --branch main \
+            --public
 
   commit-scripts:
     needs: build
