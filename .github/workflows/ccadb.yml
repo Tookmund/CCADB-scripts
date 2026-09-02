@@ -98,7 +98,7 @@ jobs:
             --project ccadb \
             --metadata metadata.yaml \
             --generate-vercel-json > vercel.json
-          sed -i 's/@vercel\/python@3\.0\.7/@vercel\/python@5.0.10/g' vercel.json
+          sed -i 's/@vercel\/python@3\.0\.7/@vercel\/python@6.54.1/g' vercel.json
           datasette publish vercel CCADB.db \
             --project ccadb \
             --metadata metadata.yaml \
