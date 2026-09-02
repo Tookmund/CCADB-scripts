@@ -104,8 +104,7 @@ jobs:
             --metadata metadata.yaml \
             --vercel-json vercel.json \
             --token $NOW_TOKEN \
-            --branch main \
-            --public
+            --branch main
 
   commit-scripts:
     needs: build
